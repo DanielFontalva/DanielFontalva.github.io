@@ -1,996 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Fontalva</title>
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/contact.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📚 Biblioteca de Oficina Granada</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <div class="public-view">
+    <header class="public-header">
+      <div class="header-content">
+        <div style="display: flex; align-items: center;">
+          <div>
+            <h1>📚 Biblioteca de Oficina Granada</h1>
+            <p>Comparte tus libros con la comunidad</p>
+          </div>
+        </div>
+      </div>
+    </header>
 
-    <a id="scroll-up" class="scroll-up" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg">
-            <path fill="rgba(255,255,255,1)"
-                d="M11.9997 10.8284L7.04996 15.7782L5.63574 14.364L11.9997 8L18.3637 14.364L16.9495 15.7782L11.9997 10.8284Z">
-            </path>
-        </svg>
-    </a>
-
-    <main>
-        <nav>
-            <div class="main-nav">
-                <div class="collapse">
-                    <div class="nav-bar">
-                        <span></span><span></span><span></span>
-                    </div>
-                </div>
-                <div class="menu-on">
-                    <ul class="menu-on-nav">
-                        <li><a href="#" class="nav-link">Home</a></li>
-                        <li><a href="#projects">Projects</a></li>
-
-                        <li><a href="#services">Services</a></li>
-
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact" id="open-work">Open for work </a></li>
-
-
-
-                    </ul>
-
-                </div>
+    <div class="public-container">
+      <div class="libros-section">
+        <h2>Libros Disponibles (<span id="libro-count">0</span>)</h2>
+        <div class="libros-grid" id="libros-container">
+          
+          <div class="libro-card">
+            <div class="libro-imagen-placeholder">📚</div>
+            <h3>5 cerditos</h3>
+            <p class="autor">Autor/a: Agatha Christie</p>
+            <div class="libro-info">
+              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
             </div>
-        </nav>
+            <button class="btn-solicitar" onclick="solicitarLibro('5 cerditos', 'Daniel Fontalva Ostio')">
+              🚀 Solicitar Libro
+            </button>
+          </div>
 
-        <div id="background-hero"></div>
-
-        <div class="hero-content" id="hero-content">
-            <div class="hero-text">
-                <h2 class="subtitle">Hi, I am</h2>
-                <h1 class="title"> Daniel Fontalva </h1>
-                <h1 class="role"><span>Full Stack </span> Web Developer</h1>
-
-                </h2>
-                <div class="double-cta">
-                    <a href="#projects" class="project-cta-section">
-                        <h1>My Projects</h1>
-                        <img src="assets/images/arrow.png" alt="">
-                    </a>
-                    <a href="#footer" class="project-cta-section">
-                        <h1>Get in touch</h1>
-                        <img src="assets/images/arrow.png" alt="">
-                    </a>
-                    <!-- <a href="routes.html" class="cta-button">My Projects</a>
-                    <a href="contact.html" class="cta-button">Let's Connect</a> -->
-                </div>
+          <div class="libro-card">
+            <img src="images/20251218_104422_WIN_20251218_10_43_37_Pro.jpg" alt="Asesinato en el campo de golf" class="libro-imagen">
+            <h3>Asesinato en el campo de golf</h3>
+            <p class="autor">Autor/a: Agatha Christie</p>
+            <div class="libro-info">
+              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
             </div>
-            <div class="hero-background-image"></div>
+            <button class="btn-solicitar" onclick="solicitarLibro('Asesinato en el campo de golf', 'Daniel Fontalva Ostio')">
+              🚀 Solicitar Libro
+            </button>
+          </div>
+
+          <div class="libro-card">
+            <img src="images/20251218_104443_WIN_20251218_10_44_08_Pro.jpg" alt="El misterioso caso de styles" class="libro-imagen">
+            <h3>El misterioso caso de styles</h3>
+            <p class="autor">Autor/a: Agatha Christie</p>
+            <div class="libro-info">
+              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
+            </div>
+            <button class="btn-solicitar" onclick="solicitarLibro('El misterioso caso de styles', 'Daniel Fontalva Ostio')">
+              🚀 Solicitar Libro
+            </button>
+          </div>
+
+          <div class="libro-card">
+            <div class="libro-imagen-placeholder">📚</div>
+            <h3>Navidades trágicas</h3>
+            <p class="autor">Autor/a: Agatha Christie</p>
+            <div class="libro-info">
+              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
+            </div>
+            <button class="btn-solicitar" onclick="solicitarLibro('Navidades trágicas', 'Daniel Fontalva Ostio')">
+              🚀 Solicitar Libro
+            </button>
+          </div>
+
+          <div class="libro-card">
+            <img src="images/20251218_104431_WIN_20251218_10_42_07_Pro.jpg" alt="El cardenal" class="libro-imagen">
+            <h3>El cardenal</h3>
+            <p class="autor">Autor/a: Henry Morton Robinson</p>
+            <div class="libro-info">
+              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
+            </div>
+            <button class="btn-solicitar" onclick="solicitarLibro('El cardenal', 'Daniel Fontalva Ostio')">
+              🚀 Solicitar Libro
+            </button>
+          </div>
+
+          <div class="libro-card">
+            <img src="images/20251218_104106_WIN_20251218_10_32_34_Pro.png" alt="El baile de los malditos" class="libro-imagen">
+            <h3>El baile de los malditos</h3>
+            <p class="autor">Autor/a: Irwin Shaw</p>
+            <div class="libro-info">
+              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
+            </div>
+            <button class="btn-solicitar" onclick="solicitarLibro('El baile de los malditos', 'Daniel Fontalva Ostio')">
+              🚀 Solicitar Libro
+            </button>
+          </div>
+
+          <div class="libro-card">
+            <img src="images/20251218_104556_WIN_20251218_10_45_45_Pro.jpg" alt="El viejo y el mar" class="libro-imagen">
+            <h3>El viejo y el mar</h3>
+            <p class="autor">Autor/a: Ernest Hemingway</p>
+            <div class="libro-info">
+              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
+            </div>
+            <button class="btn-solicitar" onclick="solicitarLibro('El viejo y el mar', 'Daniel Fontalva Ostio')">
+              🚀 Solicitar Libro
+            </button>
+          </div>
 
         </div>
-
-    </main>
-
-
-
-
-
-    <div class="about-me-section" id="about">
-        <div class="about-me-content">
-            <img src="assets/images/me.jpg" alt="Your Image" class="about-me-image">
-            <div class="about-me-text">
-                <h2>About Me</h2>
-                <p>Hello! I'm Daniel Fontalva, a passionate <strong>web developer</strong> with a strong background in
-                    both frontend and
-                    backend development. I love creating seamless and engaging <strong>user experiences</strong>, and
-                    I'm always eager to
-                    <strong> learn new technologies</strong> and improve my skills. In my free time, I enjoy exploring
-                    new places, reading
-                    tech blogs, and working on personal projects.
-                </p>
-            </div>
-            <div></div>
-        </div>
+      </div>
     </div>
 
-    <div class="title-section about-title-section">
-        <div class="line"></div>
-        <h1 class="about-title">About My Skills</h1>
+    <div class="modal-overlay" id="modal-solicitud" style="display: none;">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="cerrarModal()">✕</button>
+        <div class="formulario-solicitud">
+          <h2>🚀 Solicitar Libro</h2>
+          <div class="libro-solicitud-info">
+            <h3 id="modal-libro-titulo"></h3>
+          </div>
+          <div class="instrucciones-solicitud">
+            <p>📝 Completa el formulario y se creará una solicitud en GitHub Issues. También puedes escribirme por Teams a Daniel Fontalva Ostio</p>
+          </div>
+          
+          <div class="form-group">
+            <label for="nombre-solicitante">Tu nombre:</label>
+            <input type="text" id="nombre-solicitante" placeholder="Ej: María García" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="comentario-solicitud">Comentario (opcional):</label>
+            <input type="text" id="comentario-solicitud" placeholder="Ej: Puedo recogerlo el lunes">
+          </div>
+          
+          <button class="btn-confirmar-solicitud" onclick="confirmarSolicitud()">Crear Solicitud</button>
+        </div>
+      </div>
     </div>
 
-    <div class="about-section" id="about">
-        <div class="about-flex">
-            <div class="about-icons-container">
-                <div class="about-title2">Frontend</div>
-                <div class="about-icons">
-                    <img src="./assets/images/html.png" alt="">
-                    <img src="./assets/images/css.png" alt="">
-                    <img src="./assets/images/js.png" alt="">
-                    <img src="./assets/images/react.png" alt="">
-                    <img src="./assets/images/angular.png" alt="">
-                </div>
-            </div>
-            <p class="about-text">I'm a frontend web developer with a passion for crafting seamless and engaging user
-                experiences. I have experience with <strong>HTML</strong>, <strong>CSS</strong>,
-                <strong>JavaScript</strong>, and frameworks like <strong>React</strong> and <strong>Angular</strong>,
-                creating responsive and user-friendly websites.
-            </p>
-        </div>
+    <div class="alert" id="alert-box" style="display: none;">
+      <div class="alert-content">
+        <span class="alert-icon" id="alert-icon">✔️</span>
+        <span class="alert-message" id="alert-message"></span>
+        <button class="alert-close" onclick="cerrarAlerta()">×</button>
+      </div>
     </div>
-    <div class="about-section">
-        <div class="about-flex">
-            <div class="about-icons-container">
-                <div class="about-title2">Backend</div>
-                <div class="about-icons">
-                    <img src="./assets/images/java-logo.png" alt="">
-                    <img id="express" src="./assets/images/express.png" alt="">
-                    <img src="./assets/images/mongodb.png" alt="">
-                    <img src="./assets/images/php.png" alt="">
+  </div>
 
-                </div>
-            </div>
-            <p class="about-text">I'm also skilled in backend development, with experience in <strong>PHP</strong>,
-                <strong>Java</strong>, <strong>Node.js</strong>, <strong>MongoDB</strong>, and
-                <strong>Express</strong>. This allows me to build robust and scalable web applications, ensuring
-                that
-                both the front and back ends of a project work together seamlessly.
-            </p>
-        </div>
-    </div>
-    <div class="about-section">
-        <div class="about-flex">
-            <div class="about-icons-container">
-                <div class="about-title2">Web Designer</div>
-
-                <div class="about-icons">
-                    <img src="./assets/images/figma.png" alt="">
-                    <img src="./assets/images/photoshop.png" alt="">
-                    <img src="./assets/images/illustrator.png" alt="">
-
-                </div>
-            </div>
-            <p class="about-text">I'm a web designer with a passion for creating visually appealing and
-                user-friendly
-                designs. I have experience with <strong>Figma</strong>, <strong>Photoshop</strong>, and
-                <strong>Illustrator</strong>, crafting intuitive layouts and engaging interfaces that bring ideas to
-                life
-            </p>
-        </div>
-    </div>
-    <div class="tech-explanation-section">
-
-
-
-        <div class="tech-explanation-content">
-
-            <div class="tech-explanation-text">
-                <h1 class="tech-explanation-title">WordPress Development Skills
-                </h1>
-                <p>I have experience working with <strong>WordPress</strong> in both
-                    frontend and backend development. I can customize themes using <strong>HTML</strong>,
-                    <strong>CSS</strong>, and <strong>JavaScript</strong> to create responsive, user-friendly designs.
-                    On
-                    the backend, I work with <strong>PHP</strong> to build custom features, manage
-                    <strong>MySQL</strong>
-                    databases, and integrate third-party tools or plugins. I’m comfortable handling all aspects of a
-                    WordPress project, from the design to the functionality, to meet your needs.
-                </p>
-
-
-
-            </div>
-            <img src="./assets/images/laptop.jpg" alt="">
-        </div>
-    </div>
-
-
-    <div class="soft-skills-big-section">
-        <h1 class="tech-explanation-title">My Soft Skills</h1>
-        <div class="soft-skills-section">
-            <div class="skill-card">
-                <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 85%;"></div>
-                </div>
-                <div class="skill-elements">
-                    <div class="skill-basics">
-                        <div class="skill-name">Leadership</div>
-                        <div class="skill-number">85%</div>
-                    </div>
-                    <img src="assets/images/liderazgo.png" alt="">
-                </div>
-                <div class="skill-description">
-                    As a leader, I have the ability to guide and motivate team members, foster collaboration, and drive
-                    projects to success. I excel in communication, problem-solving, and decision-making.
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 90%;"></div>
-                </div>
-                <div class="skill-elements">
-                    <div class="skill-basics">
-                        <div class="skill-name">Teamwork</div>
-                        <div class="skill-number">90%</div>
-                    </div>
-                    <img src="assets/images/teamwork.png" alt="">
-                </div>
-                <div class="skill-description">
-                    As a web developer, I am used to working in teams, collaborating with designers, project managers,
-                    and other developers to create successful projects.
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="progress-bar-container">
-                    <div class="progress-bar-fill" style="width: 85%;"></div>
-                </div>
-                <div class="skill-elements">
-                    <div class="skill-basics">
-                        <div class="skill-name">Adaptability</div>
-                        <div class="skill-number">85%</div>
-                    </div>
-                    <img src="assets/images/adaptabi.png" alt="">
-                </div>
-                <div class="skill-description">
-                    I am adaptable and open to new challenges, technologies, and ways of working. I can quickly learn
-                    new skills and adjust to different environments.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="projects-section" id="projects">
-        <div class="title-section">
-            <div class="line"></div>
-            <h1 class="tech-explanation-title">My Frontend Projects
-            </h1>
-        </div>
-        <div class="project-container">
-
-            <img src="assets/images/arknova.png" alt="">
-            <div class="project-content">
-                <div class="title-section2">
-                    <div class="line2"></div>
-                    <h1 class="title2">Ark Nova Mock-Up
-                    </h1>
-                </div>
-                <p>This mock-up for Ark Nova, a wildlife conservation organization, emphasizes <strong>bold
-                        visuals</strong> and a modern design. It features a captivating <strong>hero
-                        section</strong>
-                    and <strong>intuitive navigation</strong> that guides users through the mission of preserving
-                    species like the Bengal Tiger and Poison Dart Frog.</p>
-
-                <p>The design focuses on <strong>clean layouts</strong> and <strong>actionable content</strong> to
-                    engage users and promote conservation efforts. The site aims to create a seamless experience
-                    that
-                    encourages users to get involved and support wildlife protection.</p>
-
-                <p>This project demonstrates my ability to create visually impactful and
-                    <strong>user-friendly</strong>
-                    web experiences for meaningful causes.
-                </p>
-
-                <a href="https://drive.google.com/file/d/1mfQ-vblDIYiMojLXfgyDUnVwvlwxVjTW/view?usp=sharing"
-                    target="_blank" class="project-cta-section">
-                    <h1>View Project</h1>
-                    <img src="assets/images/arrow.png" alt="">
-                </a>
-            </div>
-        </div>
-        <div class="project-exposition" id="project-exposition">
-            <div class="project-exposition-title">
-                <p>Keys of this project</p>
-            </div>
-            <div class="project-exposition-container">
-                <div class="project-exposition-body">
-                    <div class="project-microsection pm1">
-                        <p>Engaging users <strong>Curiosity</strong></p>
-                        <p></p>
-                        <p>This project is centered around creating designs that not only look good but also serve a
-                            purpose. I focus on user experience, ensuring that every element on the page contributes
-                            to
-                            the overall functionality and aesthetics of the site.</p>
-                    </div>
-                    <div class="project-microsection pm2">
-                        <img src="assets/images/ark4.png" alt="">
-                    </div>
-                    <div class="project-microsection pm3">
-                        <img src="assets/images/ark3.png" alt="">
-                    </div>
-                    <div class="project-microsection pm4">
-                        <p>Creating minimalist but <strong>Impactful Designs</strong></p>
-                        <p>I created a minimalist yet striking design for the Biopark mock-up, using bold visuals,
-                            clean
-                            layouts, and impactful typography to draw the user’s attention. The design balances
-                            simplicity with engaging content, ensuring a seamless and visually appealing user
-                            experience.</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-        <div class="project-container">
-
-            <img src="assets/images/turquia.png" alt="">
-            <div class="project-content">
-                <div class="title-section2">
-                    <div class="line2"></div>
-                    <h1 class="title2">Turkije Tourism Website
-                    </h1>
-                </div>
-                <p>This website for Turkije (Turkey) promotes the country as a must-visit destination, focusing on
-                    <strong>engaging users</strong> and inspiring exploration. It features <strong>immersive
-                        visuals</strong>, interactive tools like a travel planner, and sections highlighting
-                    <strong>Turkije’s culture and landscapes</strong>.
-                </p>
-
-                <p>The design includes <strong>dynamic call-to-actions</strong> and smooth navigation, encouraging
-                    users
-                    to <strong>plan their trip directly</strong>. This project showcases my ability to create
-                    <strong>responsive</strong>, <strong>user-focused</strong>, and <strong>visually
-                        captivating</strong> websites.
-                </p>
-
-                <a href="https://drive.google.com/file/d/10Q-vJfunNzJS-LsaJSS2dotzXP3-cNLn/view?usp=drive_link"
-                    target="_blank" class="project-cta-section">
-                    <h1>View Project</h1>
-                    <img src="assets/images/arrow.png" alt="">
-                </a>
-            </div>
-        </div>
-        <div class="project-exposition" id="project-exposition">
-            <div class="project-exposition-title">
-                <p>Keys of this project</p>
-            </div>
-            <div class="project-exposition-container">
-                <div class="project-exposition-body">
-                    <div class="project-microsection pm1">
-                        <p>Interactive <strong>Usability</strong></p>
-                        <p></p>
-                        <p>This project emphasizes creating a highly interactive and intuitive user experience. From
-                            dynamic navigation to interactive tools like the itinerary planner, every feature is
-                            designed to make exploring and planning a trip to Turkije effortless and engaging.</p>
-                    </div>
-                    <div class="project-microsection pm2">
-                        <img src="assets/images/turquia3.png" alt="Turkije Website Feature 1">
-                    </div>
-                    <div class="project-microsection pm3">
-                        <img src="assets/images/turquia2.png" alt="Turkije Website Feature 2">
-                    </div>
-                    <div class="project-microsection pm4">
-                        <p>Effective <strong>Call to Actions</strong></p>
-                        <p>The website uses impactful CTAs to engage users, guiding them seamlessly through the
-                            content.
-                            Whether it’s booking a trip, exploring guides, or learning about Turkije’s attractions,
-                            each
-                            CTA is strategically placed to inspire action and foster user engagement.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="project-container">
-
-            <img src="assets/images/olympus.png" alt="">
-            <div class="project-content">
-                <div class="title-section2">
-                    <div class="line2"></div>
-                    <h1 class="title2">Climbing Website - <span>In Development </span>
-                    </h1>
-                </div>
-                <p>This website for Up to Olympus, a climbing site, focuses on <strong>striking images</strong> that
-                    inspire users to explore the world of climbing. The images convey the excitement and beauty of
-                    the
-                    mountains, creating a connection with visitors.</p>
-
-                <p>The design ensures a <strong>fluid</strong> and <strong>dynamic</strong> user experience,
-                    allowing
-                    easy exploration of climbing routes, events, and tips. It includes registration tools, blogs
-                    from
-                    climbers, and an inspiring image gallery.</p>
-
-                <p>This project highlights my ability to create visually appealing and <strong>intuitive</strong>
-                    web
-                    experiences for climbing enthusiasts.</p>
-                <!-- <a href="" class="project-cta-section">
-                    <h1>View Project</h1>
-                    <img src="assets/images/arrow.png" alt="">
-                </a> -->
-            </div>
-        </div>
-        <div class="project-exposition" id="project-exposition">
-            <div class="project-exposition-title">
-                <p>Keys of this project</p>
-            </div>
-            <div class="project-exposition-container">
-                <div class="project-exposition-body">
-                    <div class="project-microsection pm1">
-                        <p>Fluid <strong>Design</strong></p>
-                        <p>This project focuses on creating a <strong>fluid</strong> and <strong>dynamic</strong>
-                            user
-                            experience. The design ensures seamless navigation, allowing users to effortlessly
-                            explore
-                            climbing routes, events, and tips. The site adapts smoothly to different devices,
-                            providing
-                            an intuitive experience for users to engage with the world of climbing.</p>
-                    </div>
-                    <div class="project-microsection pm2">
-                        <img src="assets/images/olympus2.png" alt="Climbing Website Feature 1">
-                    </div>
-                    <div class="project-microsection pm3">
-                        <img src="assets/images/olympus3.png" alt="Climbing Website Feature 2">
-                    </div>
-                    <div class="project-microsection pm4">
-                        <p>Engaging <strong>Images</strong></p>
-                        <p>The website uses striking images to inspire users and draw them into the excitement of
-                            climbing. The visuals highlight the thrill, challenge, and beauty of the sport,
-                            motivating
-                            users to take action and plan their next climb.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-
-
-
-
-    <div class="service-values-section">
-        <h1>Why Choose Me as Your Web Developer?
-
-        </h1>
-        <div class="service-flex">
-            <div class="service-key">
-                <div class="service-key-img rombo"><img src="./assets/images/eye2.png" alt=""></div>
-                <div class="service-key-text">
-                    <p><strong>Designing with Purpose</strong>
-                    </p>
-                    <p>With two years of dedicated study and hands-on projects, I’ve developed a <strong>strong eye
-                            for
-                            design</strong> and
-                        functionality. My goal is to create websites that are <strong>visually appealing</strong>
-                        and
-                        genuinely
-                        <strong>useful for your audience</strong>.
-                    </p>
-                </div>
-
-            </div>
-            <div class="service-key">
-                <div class="service-key-text">
-                    <p><strong>Comprehensive Solutions</strong>
-                    </p>
-                    <p>From front-end design to back-end functionality>, I have the skills to cover every aspect of
-                        web development. My aim is to meet all your needs in one place, ensuring a
-                        <strong>seamless</strong> and
-                        <strong>efficient process</strong>.
-
-                    </p>
-                </div>
-                <div class="service-key-img rombo"><img src="./assets/images/tune2.png"></div>
-
-            </div>
-            <div class="service-key">
-                <div class="service-key-img rombo"><img src="./assets/images/responsive2.png" alt=""></div>
-                <div class="service-key-text">
-                    <p><strong>Responsive and Reliable</strong>
-
-                    </p>
-                    <p>I’ve worked on projects where ensuring <strong>compatibility across devices</strong> was key.
-                        Every website I
-                        build is designed to look great and perform <strong>smoothly</strong> on screens of all
-                        sizes,
-                        from mobiles to
-                        desktops.
-                    </p>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!-- 
-    <div class="projects-section" id="projects">
-        <div class="title-section">
-            <div class="line"></div>
-            <h1 class="tech-explanation-title">Other projects
-            </h1>
-        </div>
-
-    </div>
-    <div class="galeria-container">
-        <div class="image-section">
-            <img src="./assets/images/galeria1.png" loading="lazy" alt="">
-            <div class="image-title">Bluehost Template</div>
-        </div>
-        <div class="image-section">
-            <img src="assets/images/galeria2.png" loading="lazy" alt="">
-            <div class="image-title">Top Homes Renting</div>
-        </div>
-        <div class="image-section">
-            <img src="assets/images/galeria3.jpg" loading="lazy" alt="">
-            <div class="image-title">New Arrival Brand Website</div>
-        </div>
-        <div class="image-section">
-            <img src="assets/images/galeria7.jpg" loading="lazy" alt="">
-            <div class="image-title">Model Portfolio</div>
-        </div>
-        <div class="image-section">
-            <img src="assets/images/galeria4.jpg" loading="lazy" alt="">
-            <div class="image-title">Wild Routes Business</div>
-        </div>
-        <div class="image-section">
-            <img src="assets/images/galeria5.jpg" loading="lazy" alt="">
-            <div class="image-title">Cloud Storage Service</div>
-        </div>
-
-
-        <div class="image-section">
-            <img src="assets/images/galeria8.jpg" loading="lazy" alt="">
-            <div class="image-title">Portfolio web Template</div>
-        </div>
-
-        <div class="image-section">
-            <img src="assets/images/galeria9.jpg" loading="lazy" alt="">
-            <div class="image-title">Bootstrap theme</div>
-        </div>
-
-    </div> -->
-
-
-
-    <!-- <div class="projects-section" id="projects">
-        <div class="title-section">
-            <div class="line"></div>
-            <h1 class="tech-explanation-title">My Backend Projects
-            </h1>
-        </div> -->
-
-    <!-- </div> -->
-
-    <!-- <div class="project-backend">
-        <div class="project-backend-background"></div>
-
-    </div>
-
-    <div class="projects-section" id="projects">
-        <div class="title-section">
-            <div class="line"></div>
-            <h1 class="tech-explanation-title">My services
-            </h1>
-        </div>
-
-    </div>
-
-    <div class="service-card-container" id="services">
-
-        <div class="service-card-content">
-            <div class="service-card-title">
-                <h2>Worpress blog/website</h2>
-                <p>Transform your online presence with a <strong>custom WordPress website</strong> tailored to your
-                    needs! As a
-                    skilled web developer, I create fast, responsive, and visually stunning websites that help
-                    businesses grow. Whether you need a personal blog, an e-commerce store, or a corporate site, I
-                    ensure seamless functionality and a user-friendly experience. Let’s build something amazing
-                    together!</p>
-
-            </div>
-            <div class="service-card-text">
-                <h3>Service info</h3>
-                <div class="service-card-info-container">
-                    <div class="service-card-info">
-                        <img src="assets/images/precio.png" alt="">
-                        <p>Accesible Pricing </p>
-                    </div>
-                    <div class="service-card-info">
-                        <img src="assets/images/tiempo.png" alt="">
-                        <p> Fast Delivery</p>
-                    </div>
-                    <div class="service-card-info">
-                        <img src="assets/images/cohete.png" alt="">
-                        <p> Boost your business</p>
-                    </div>
-                    <div class="service-card-info">
-                        <img src="assets/images/income.png" alt="">
-                        <p> Improve your incomes</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="service-card-img">
-            <img src="./assets/images/wordpress-screenshot.webp">
-        </div>
-    </div>
-    <div class="precios-cards-container">
-
-        <div class="precios-cards-card">
-            <h2>Basic Plan</h2>
-            <div class="precios-cards-price">$299</div>
-            <ul class="precios-cards-features">
-                <li>✔ Custom Design</li>
-                <li>✔ Responsive Layout</li>
-            </ul>
-            <a href="#contact" class="precios-cards-btn">Get Basic</a>
-            <div class="precios-cards-footer">Delivery: 7 Days</div>
-        </div>
-
-        <div class="precios-cards-card">
-            <h2>Standard Plan</h2>
-            <div class="precios-cards-price"> <span class="precios-cards-new-price">$399</span>
-                <span class="precios-cards-old-price"><s>$499</s></span>
-            </div>
-            <ul class="precios-cards-features">
-                <li>✔ Custom Design</li>
-                <li>✔ Responsive Layout</li>
-                <li>✔ SEO Optimization</li>
-            </ul>
-            <a href="#contact" class="precios-cards-btn">Get Standard</a>
-            <div class="precios-cards-footer">Delivery: 5 Days</div>
-        </div>
-
-        <div class="precios-cards-card">
-            <h2>Premium Plan</h2>
-            <div class="precios-cards-price">
-
-                <span class="precios-cards-new-price">$599</span>
-                <span class="precios-cards-old-price"><s>$799</s></span>
-
-            </div>
-            <ul class="precios-cards-features">
-                <li>✔ Custom Design</li>
-                <li>✔ Responsive Layout</li>
-                <li>✔ SEO Optimization</li>
-                <li>✔ E-Commerce + Premium Support</li>
-            </ul>
-            <a href="#contact" class="precios-cards-btn">Get Premium</a>
-            <div class="precios-cards-footer">Delivery: 3 Days</div>
-        </div>
-
-    </div>
-
-    <div class="service-card-container javascript-section">
-
-        <div class="service-card-content">
-            <div class="service-card-title">
-                <h2>Responsive Bootstrap with TypeScript</h2>
-                <p>Build clean, responsive, and visually appealing websites with <strong>TypeScript</strong> and
-                    <strong>Bootstrap</strong>, designed to work seamlessly across all devices! As a skilled web
-                    developer, I specialize in creating modern, mobile-first websites that are both functional and
-                    aesthetically pleasing. Whether you need a personal portfolio, a business landing page, or a
-                    corporate website.
-                </p>
-
-            </div>
-            <div class="service-card-text">
-                <h3>Service info</h3>
-                <div class="service-card-info-container">
-                    <div class="service-card-info">
-                        <img src="assets/images/eye.png" alt="">
-                        <p>Attractive websites</p>
-                    </div>
-                    <div class="service-card-info">
-                        <img src="assets/images/code.png" alt="">
-                        <p>Quality code</p>
-                    </div>
-                    <div class="service-card-info">
-                        <img src="assets/images/server.png" alt="">
-                        <p>Strong servers</p>
-                    </div>
-                    <div class="service-card-info">
-                        <img src="assets/images/martillo.png" alt="">
-                        <p>Fast creation</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="service-card-img">
-            <img src="./assets/images/bootstrap2.jpg">
-        </div>
-    </div>
-
-    <div class="precios-cards-container">
-
-        <div class="precios-cards-card">
-            <h2>Basic Plan</h2>
-            <div class="precios-cards-price">$399</div>
-            <ul class="precios-cards-features">
-                <li>✔ Custom Functional Design</li>
-                <li>✔ Responsive Layout</li>
-                <li>✔ Interactive Elements</li>
-            </ul>
-            <a href="#contact" class="precios-cards-btn">Get Basic</a>
-            <div class="precios-cards-footer">Delivery: 4 Months</div>
-        </div>
-
-        <div class="precios-cards-card">
-            <h2>Standard Plan</h2>
-            <div class="precios-cards-price">
-                <span class="precios-cards-new-price">$599</span>
-            </div>
-            <ul class="precios-cards-features">
-                <li>✔ Custom Functional Design</li>
-                <li>✔ Responsive Layout</li>
-                <li>✔ API Integration</li>
-                <li>✔ TypeScript Optimization</li>
-            </ul>
-            <a href="#contact" class="precios-cards-btn">Get Standard</a>
-            <div class="precios-cards-footer">Delivery: 5 Months</div>
-        </div>
-
-        <div class="precios-cards-card">
-            <h2>Premium Plan</h2>
-            <div class="precios-cards-price">
-                <span class="precios-cards-new-price">$599</span>
-                <span class="precios-cards-old-price"><s>$799</s></span>
-            </div>
-            <ul class="precios-cards-features">
-                <li>✔ Custom Functional Design</li>
-                <li>✔ Responsive Layout</li>
-                <li>✔ TypeScript Architecture</li>
-                <li>✔ Real-Time Data Handling</li>
-                <li>✔ Full-stack Development</li>
-            </ul>
-            <a href="#contact" class="precios-cards-btn">Get Premium</a>
-            <div class="precios-cards-footer">Delivery: 6 Months</div>
-        </div>
-
-    </div>
-
-
-
-
-
-
-
-
-    <div class="reviews">
-        <div class="projects-section" id="projects">
-            <div class="title-section">
-                <div class="line"></div>
-                <h1 class="tech-explanation-title">Reviews
-                </h1>
-            </div>
-
-        </div>
-        <div class="main-container">
-            <div class="reviews-container">
-                <div class="review-item">
-                    <div class="client-info">
-                        <div class="client-group">
-                            <img class="client-image" src="./assets/images/woman.jpg" alt="">
-                            <p class="lined-name">Ana Smith</p>
-                            <p class="client-function">Marketing</p>
-                        </div>
-                        <p class="review-secondary-text">New Wordle Business Company</p>
-                    </div>
-                    <div class="client-content">
-                        <img class="review-client-stars" src="./assets/images/starts2.png" alt="">
-                        <p class="review-title">Outstanding Custom Website!</p>
-                        <p class="review-text">Working with this developer was an amazing experience! They created a
-                            fully customized website for my business, with an intuitive design and seamless
-                            functionality. Highly recommended!</p>
-                    </div>
-                </div>
-                <div class="review-item">
-                    <div class="client-info">
-                        <div class="client-group">
-                            <img class="client-image" src="./assets/images/man.jpg" alt="">
-                            <p class="lined-name">David Page</p>
-                            <p class="client-function"> CEO</p>
-                        </div>
-                        <p class="review-secondary-text">BETHESDA Marketing S.A</p>
-                    </div>
-                    <div class="client-content">
-                        <img class="review-client-stars" src="./assets/images/starts2.png" alt="">
-                        <p class="review-title special-font">Expert in Web Development</p>
-                        <p class="review-text">This developer is a true professional. They delivered a
-                            high-performance,
-                            beautifully designed website tailored to my needs. Their attention to detail and
-                            expertise
-                            in UX/UI are unmatched!</p>
-                    </div>
-                </div>
-                <div class="review-info">
-                    <h2>Overall Clients Review</h2>
-                    <div class="reviews-rating">
-                        <div class="rating-stars">
-                            <img class="rating-stars-image" src="./assets/images/starts 1.png" alt="">
-                            <div class="rating-number">4.5</div>
-
-                        </div>
-                        <p></p>
-                        <a class="button" href="#">Contact me</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="service-values-section">
-            <h1>Why Choose Me as Your Web Developer?</h1>
-            <div class="service-flex">
-                <div class="service-key">
-                    <div class="service-key-img triangle"><img src="./assets/images/clean.png" alt="Code Quality">
-                    </div>
-                    <div class="service-key-text">
-                        <p><strong>Clean and Maintainable Code</strong></p>
-                        <p>With a strong foundation in coding best practices, I write <strong>clean,
-                                readable</strong>,
-                            and
-                            well-documented code. My focus is on <strong>maintainability</strong>, making it easy
-                            for
-                            future
-                            developers
-                            to understand and build upon.</p>
-                    </div>
-                </div>
-                <div class="service-key">
-                    <div class="service-key-text">
-                        <p><strong>Scalable and Modular Solutions</strong></p>
-                        <p>Using design patterns and modular programming techniques, I create <strong>scalable
-                                solutions</strong> that
-                            adapt to your growing needs. My approach ensures your project is
-                            <strong>extensible</strong>
-                            and
-                            can evolve
-                            with minimal effort.
-                        </p>
-                    </div>
-                    <div class="service-key-img triangle"><img src="./assets/images/sheets.png" alt="Scalability">
-                    </div>
-                </div>
-                <div class="service-key">
-                    <div class="service-key-img triangle"><img src="./assets/images/light.png" alt="Adaptability">
-                    </div>
-                    <div class="service-key-text">
-                        <p><strong>Adaptable and Future-Proof</strong></p>
-                        <p>I stay up-to-date with the latest technologies and frameworks, ensuring your project is
-                            built
-                            with <strong>modern, reliable tools</strong>. My goal is to deliver code that is
-                            <strong>adaptable</strong> to new features,
-                            platforms, or requirements.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div> -->
-
-    <div class="contact-section" id="contact">
-        <div class="title-section">
-            <div class="line" id="title-white"></div>
-            <h1 class="tech-explanation-title">Contact
-            </h1>
-        </div>
-        <div class="contact-flex">
-            <div class="bio-section">
-                <div>
-                    <h2>Let's Talk</h2>
-                    <p>If you are interested in my projects and you are considering to hire my services, do not
-                        hesitate
-                        to
-                        contact me.</p>
-                </div>
-
-                <div class="contact-cards">
-
-                    <div class="card">
-                        <h3>GET IN TOUCH</h3>
-
-                        <p>danielfontalvao@gmail.com</p>
-                        <p>+34 616122285</p>
-                    </div>
-                    <div class="card">
-                        <h3>KNOW MORE</h3>
-                        <div class="social-links-flex">
-                            <p class="linked">
-
-                                <a href="https://github.com/danielfontalva" target="_blank"><img id="gato"
-                                        src="assets/images/ogato.png" alt=""></a>
-                            </p>
-                            <p class="linked">
-                                <a href="https://linkedin.com/in/danielfontalva" target="_blank"><img
-                                        src="assets/images/linkedin-w.png" alt=""></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Name</label> <br>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label> <br>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label> <br>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <a href="#projects" class="project-cta-section">
-                        <h1>Get in Touch</h1>
-                        <img src="assets/images/arrow.png" alt="">
-                    </a>
-                </form>
-
-
-
-            </div>
-        </div>
-    </div>
-    <footer class="footer" id="footer">
-        <div class="footer-container">
-
-            <div class="footer-flex">
-
-                <div class="footer-content">
-                    <h4>Site Links</h4>
-                    <ul>
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About me</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-content">
-                    <h4>Projects</h4>
-                    <ul>
-
-                        <li><a href="#projects">Frontend Projects</a></li>
-                        <li><a href="#projects">Web Designs</a></li>
-                        <li><a href="#projects">Backend Projects</a></li>
-
-                    </ul>
-                </div>
-                <div class="footer-content">
-                    <h4>Social Links </h4>
-                    <ul>
-                        <li><a href="https://es.linkedin.com/" target="_blank"></a></li>
-                        <li><a href="https://github.com/danielfontalva" target="_blank">GitHub</a></li>
-                        <li> <a href="https://linkedin.com/in/danielfontalva" target="_blank">LinkedIn</a></li>
-                    </ul>
-
-                </div>
-                <div class="footer-content">
-                    <h4>Contact</h4>
-                    <div class="footer-microsection-flex">
-                        <img src="assets/images/phone-w.png" alt="">
-                        <p>+34 532987123</p>
-                    </div>
-                    <div class="footer-microsection-flex">
-                        <img src="assets/images/location-w.png" alt="">
-                        <p>Calle Primavera 21</p>
-                    </div>
-                    <div class="footer-microsection-flex">
-                        <img src="assets/images/mail-w.png" alt="">
-                        <p>danielfontalvao@gmail.com</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <hr>
-        <div class="footer-bottom">
-            <p>2025 Daniel Fontalva. Portfolio Practice.</p>
-        </div>
-    </footer>
-    <script src="assets/js/collapse.js"></script>
-
+  <script src="script.js"></script>
 </body>
-
 </html>

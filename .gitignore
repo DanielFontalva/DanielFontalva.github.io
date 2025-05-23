@@ -1,0 +1,15 @@
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+
+# Temporal
+*.tmp
+*.log

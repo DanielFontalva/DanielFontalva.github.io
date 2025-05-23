@@ -1,0 +1,46 @@
+name: 📚 Solicitud de Libro
+description: Solicitar un libro de la biblioteca
+title: "📚 Solicitud: "
+labels: ["solicitud-libro"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Solicitud de Libro
+        Completa este formulario para solicitar un libro de la biblioteca.
+  
+  - type: input
+    id: libro
+    attributes:
+      label: 📖 Libro solicitado
+      description: Título del libro que deseas solicitar
+      placeholder: "Ej: El viejo y el mar"
+    validations:
+      required: true
+  
+  - type: input
+    id: propietario
+    attributes:
+      label: 👤 Propietario
+      description: Nombre del propietario del libro
+      placeholder: "Ej: Daniel Fontalva Ostio"
+    validations:
+      required: true
+  
+  - type: input
+    id: solicitante
+    attributes:
+      label: 🙋 Tu nombre
+      description: Tu nombre completo
+      placeholder: "Ej: María García"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: comentario
+    attributes:
+      label: 💬 Comentario
+      description: Información adicional (opcional)
+      placeholder: "Ej: Puedo recogerlo el lunes por la mañana"
+    validations:
+      required: false

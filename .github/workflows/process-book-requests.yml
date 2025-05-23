@@ -1,0 +1,58 @@
+name: Procesar Solicitudes de Libros
+
+on:
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  process-request:
+    if: contains(github.event.issue.labels.*.name, 'solicitud-libro')
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Agregar comentario de confirmación
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const body = issue.body;
+            
+            const propietarioMatch = body.match(/\*\*.*Propietario.*\*\*[:\s]+(.+)/i);
+            const solicitanteMatch = body.match(/\*\*.*Solicitado por.*\*\*[:\s]+(.+)/i);
+            
+            const propietario = propietarioMatch ? propietarioMatch[1].trim() : 'Propietario';
+            const solicitante = solicitanteMatch ? solicitanteMatch[1].trim() : 'Solicitante';
+            
+            const comment = `¡Hola @${issue.user.login}! 👋
+
+Tu solicitud ha sido registrada exitosamente. 
+
+📌 **Próximos pasos:**
+1. ${propietario} será notificado de tu solicitud
+2. Ponte en contacto con el propietario por Teams o correo
+3. Coordina la entrega del libro
+
+Una vez que hayas recogido el libro, puedes cerrar este issue.
+
+---
+*Este es un mensaje automático generado por GitHub Actions* 🤖`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: comment
+            });
+            
+            console.log(`✅ Solicitud procesada: ${solicitante} solicita libro a ${propietario}`);
+      
+      - name: Agregar label de estado
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              labels: ['pendiente']
+            });
