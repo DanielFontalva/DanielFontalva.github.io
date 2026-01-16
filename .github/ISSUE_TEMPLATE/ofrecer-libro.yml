@@ -1,0 +1,46 @@
+name: 📚 Ofrecer Libro
+description: Ofrecer un libro para añadir a la biblioteca
+title: "📚 Ofrecer: "
+labels: ["ofrecer-libro"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Ofrecer un Libro
+        ¡Gracias por contribuir a la biblioteca! Completa este formulario para ofrecer un libro.
+  
+  - type: input
+    id: titulo
+    attributes:
+      label: 📖 Título del libro
+      description: Nombre completo del libro
+      placeholder: "Ej: Cien años de soledad"
+    validations:
+      required: true
+  
+  - type: input
+    id: autor
+    attributes:
+      label: ✍️ Autor/a
+      description: Nombre del autor (opcional)
+      placeholder: "Ej: Gabriel García Márquez"
+    validations:
+      required: false
+  
+  - type: input
+    id: donante
+    attributes:
+      label: 👤 Tu nombre
+      description: Tu nombre completo
+      placeholder: "Ej: María García"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: comentarios
+    attributes:
+      label: 💬 Comentarios adicionales
+      description: Información sobre el estado del libro, dónde está ubicado, etc. (opcional)
+      placeholder: "Ej: Libro en buen estado, está en mi escritorio"
+    validations:
+      required: false

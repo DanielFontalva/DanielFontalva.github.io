@@ -68,6 +68,25 @@ document.getElementById('nombre-solicitante')?.addEventListener('keypress', func
   }
 });
 
+function ofrecerLibro() {
+  const titulo = '📚 Ofrecer Libro para la Biblioteca';
+  const cuerpo = `**📖 Título del libro:**
+
+**✍️ Autor/a (opcional):**
+
+**👤 Tu nombre:**
+
+**💬 Comentarios adicionales (opcional):**
+
+---
+*Oferta de libro generada desde la Biblioteca de Oficina Granada*`;
+  
+  const url = `https://github.com/DanielFontalva/DanielFontalva.github.io/issues/new?title=${encodeURIComponent(titulo)}&body=${encodeURIComponent(cuerpo)}&labels=ofrecer-libro`;
+  
+  window.open(url, '_blank');
+  mostrarAlerta('success', '✅ Se abrirá GitHub para ofrecer tu libro');
+}
+
 function confirmarSolicitud() {
   const nombre = document.getElementById('nombre-solicitante')?.value.trim();
   const comentario = document.getElementById('comentario-solicitud')?.value.trim();

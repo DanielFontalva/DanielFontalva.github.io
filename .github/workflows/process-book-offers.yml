@@ -1,0 +1,65 @@
+name: Procesar Ofertas de Libros
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  issues: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  process-offer:
+    if: contains(github.event.issue.labels.*.name, 'ofrecer-libro')
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Agregar comentario de confirmación
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const body = issue.body;
+            
+            const tituloMatch = body.match(/\*\*.*Título.*\*\*[:\s]+(.+)/i);
+            const donanteMatch = body.match(/\*\*.*Tu nombre.*\*\*[:\s]+(.+)/i);
+            
+            const titulo = tituloMatch ? tituloMatch[1].trim() : 'Libro';
+            const donante = donanteMatch ? donanteMatch[1].trim() : 'Donante';
+            
+            const comment = `¡Hola @${issue.user.login}! 👋
+
+¡Gracias por ofrecer "${titulo}" a la biblioteca! 📚
+
+📌 **Próximos pasos:**
+1. Un administrador revisará tu oferta
+2. Te contactarán para coordinar la entrega
+3. Una vez agregado, el libro aparecerá en la página web
+
+Mantén este issue abierto hasta que el libro sea agregado a la biblioteca.
+
+---
+*Este es un mensaje automático generado por GitHub Actions* 🤖`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: comment
+            });
+            
+            console.log(`✅ Oferta procesada: ${donante} ofrece "${titulo}"`);
+      
+      - name: Agregar label de pendiente
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              labels: ['pendiente-revision']
+            });
