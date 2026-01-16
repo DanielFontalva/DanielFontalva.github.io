@@ -8,7 +8,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.issue.number }}
+  group: process-request-${{ github.event.issue.number }}
   cancel-in-progress: false
 
 jobs:
@@ -40,7 +40,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
-                body: `⚠️ **Límite de solicitudes alcanzado**\n\nHas alcanzado el límite de ${LIMITE_SOLICITUDES} solicitudes abiertas simultáneamente.\nPor favor, cierra algunas solicitudes anteriores antes de crear nuevas.\n\n*Medida de protección contra abuso*`
+                body: `Limite de solicitudes alcanzado\n\nHas alcanzado el limite de ${LIMITE_SOLICITUDES} solicitudes abiertas simultaneamente.\nPor favor, cierra algunas solicitudes anteriores antes de crear nuevas.\n\nMedida de proteccion contra abuso`
               });
               
               await github.rest.issues.update({
@@ -58,31 +58,16 @@ jobs:
                 labels: ['spam-bloqueado']
               });
               
-              core.setFailed('Usuario ha excedido el límite de solicitudes abiertas');
-              return;
-            }
               return;
             }
             
-            const propietarioMatch = body.match(/\*\*.*Propietario.*\*\*[:\s]+(.+)/i);
-            const solicitanteMatch = body.match(/\*\*.*Solicitado por.*\*\*[:\s]+(.+)/i);
+            const propietarioMatch = body.match(/Propietario.*:\s*(.+)/i);
+            const solicitanteMatch = body.match(/Solicitado por.*:\s*(.+)/i);
             
             const propietario = propietarioMatch ? propietarioMatch[1].trim() : 'Propietario';
             const solicitante = solicitanteMatch ? solicitanteMatch[1].trim() : 'Solicitante';
             
-            const comment = `¡Hola @${issue.user.login}! 👋
-
-Tu solicitud ha sido registrada exitosamente. 
-
-📌 **Próximos pasos:**
-1. ${propietario} será notificado de tu solicitud
-2. Ponte en contacto con el propietario por Teams o correo
-3. Coordina la entrega del libro
-
-Una vez que hayas recogido el libro, puedes cerrar este issue.
-
----
-*Este es un mensaje automático generado por GitHub Actions* 🤖`;
+            const comment = `Hola @${issue.user.login}!\n\nTu solicitud ha sido registrada exitosamente.\n\nProximos pasos:\n1. ${propietario} sera notificado de tu solicitud\n2. Ponte en contacto con el propietario por Teams o correo\n3. Coordina la entrega del libro\n\nUna vez que hayas recogido el libro, puedes cerrar este issue.\n\n---\n*Mensaje automatico generado por GitHub Actions*`;
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
@@ -91,7 +76,7 @@ Una vez que hayas recogido el libro, puedes cerrar este issue.
               body: comment
             });
             
-            console.log(`✅ Solicitud procesada: ${solicitante} solicita libro a ${propietario}`);
+            console.log('Solicitud procesada');
       
       - name: Agregar label de estado
         uses: actions/github-script@v7

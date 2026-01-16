@@ -8,7 +8,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.issue.number }}
+  group: process-offer-${{ github.event.issue.number }}
   cancel-in-progress: false
 
 jobs:
@@ -17,32 +17,20 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Agregar comentario de confirmación
+      - name: Agregar comentario de confirmacion
         uses: actions/github-script@v7
         with:
           script: |
             const issue = context.payload.issue;
             const body = issue.body;
             
-            const tituloMatch = body.match(/\*\*.*Título.*\*\*[:\s]+(.+)/i);
-            const donanteMatch = body.match(/\*\*.*Tu nombre.*\*\*[:\s]+(.+)/i);
+            const tituloMatch = body.match(/Titulo.*:\s*(.+)/i);
+            const donanteMatch = body.match(/Tu nombre.*:\s*(.+)/i);
             
             const titulo = tituloMatch ? tituloMatch[1].trim() : 'Libro';
             const donante = donanteMatch ? donanteMatch[1].trim() : 'Donante';
             
-            const comment = `¡Hola @${issue.user.login}! 👋
-
-¡Gracias por ofrecer "${titulo}" a la biblioteca! 📚
-
-📌 **Próximos pasos:**
-1. Un administrador revisará tu oferta
-2. Te contactarán para coordinar la entrega
-3. Una vez agregado, el libro aparecerá en la página web
-
-Mantén este issue abierto hasta que el libro sea agregado a la biblioteca.
-
----
-*Este es un mensaje automático generado por GitHub Actions* 🤖`;
+            const comment = `Hola @${issue.user.login}!\n\nGracias por ofrecer "${titulo}" a la biblioteca!\n\nProximos pasos:\n1. Un administrador revisara tu oferta\n2. Te contactaran para coordinar la entrega\n3. Una vez agregado, el libro aparecera en la pagina web\n\nManten este issue abierto hasta que el libro sea agregado a la biblioteca.\n\n---\n*Mensaje automatico generado por GitHub Actions*`;
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
@@ -51,7 +39,7 @@ Mantén este issue abierto hasta que el libro sea agregado a la biblioteca.
               body: comment
             });
             
-            console.log(`✅ Oferta procesada: ${donante} ofrece "${titulo}"`);
+            console.log('Oferta procesada');
       
       - name: Agregar label de pendiente
         uses: actions/github-script@v7
