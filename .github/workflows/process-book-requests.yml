@@ -4,18 +4,65 @@ on:
   issues:
     types: [opened, labeled]
 
+permissions:
+  issues: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
 jobs:
   process-request:
     if: contains(github.event.issue.labels.*.name, 'solicitud-libro')
     runs-on: ubuntu-latest
     
     steps:
-      - name: Agregar comentario de confirmación
+      - name: Verificar abuso y agregar comentario
         uses: actions/github-script@v7
         with:
           script: |
             const issue = context.payload.issue;
             const body = issue.body;
+            const user = issue.user.login;
+            
+            const { data: userIssues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              creator: user,
+              labels: 'solicitud-libro',
+              state: 'open',
+              per_page: 100
+            });
+            
+            const LIMITE_SOLICITUDES = 5;
+            if (userIssues.length > LIMITE_SOLICITUDES) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `⚠️ **Límite de solicitudes alcanzado**\n\nHas alcanzado el límite de ${LIMITE_SOLICITUDES} solicitudes abiertas simultáneamente.\nPor favor, cierra algunas solicitudes anteriores antes de crear nuevas.\n\n*Medida de protección contra abuso*`
+              });
+              
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed',
+                state_reason: 'not_planned'
+              });
+              
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: ['spam-bloqueado']
+              });
+              
+              core.setFailed('Usuario ha excedido el límite de solicitudes abiertas');
+              return;
+            }
+              return;
+            }
             
             const propietarioMatch = body.match(/\*\*.*Propietario.*\*\*[:\s]+(.+)/i);
             const solicitanteMatch = body.match(/\*\*.*Solicitado por.*\*\*[:\s]+(.+)/i);
