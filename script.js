@@ -24,11 +24,18 @@ function solicitarLibro(tituloLibro, propietario) {
 
 function cerrarModal() {
   document.getElementById('modal-solicitud').style.display = 'none';
+  document.getElementById('modal-ofrecer').style.display = 'none';
 }
 
 document.getElementById('modal-solicitud')?.addEventListener('click', function(e) {
   if (e.target === this) {
     cerrarModal();
+  }
+});
+
+document.getElementById('modal-ofrecer')?.addEventListener('click', function(e) {
+  if (e.target === this) {
+    cerrarModalOfrecer();
   }
 });
 
@@ -57,6 +64,7 @@ function cerrarAlerta() {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     cerrarModal();
+    cerrarModalOfrecer();
     cerrarAlerta();
   }
 });
@@ -69,22 +77,50 @@ document.getElementById('nombre-solicitante')?.addEventListener('keypress', func
 });
 
 function ofrecerLibro() {
-  const titulo = '📚 Ofrecer Libro para la Biblioteca';
-  const cuerpo = `**📖 Título del libro:**
+  const modal = document.getElementById('modal-ofrecer');
+  modal.style.display = 'flex';
+}
 
-**✍️ Autor/a (opcional):**
+function cerrarModalOfrecer() {
+  document.getElementById('modal-ofrecer').style.display = 'none';
+}
 
-**👤 Tu nombre:**
-
-**💬 Comentarios adicionales (opcional):**
+function confirmarOferta() {
+  const titulo = document.getElementById('titulo-libro')?.value.trim();
+  const autor = document.getElementById('autor-libro')?.value.trim();
+  const nombre = document.getElementById('nombre-ofrecedor')?.value.trim();
+  const comentario = document.getElementById('comentario-oferta')?.value.trim();
+  
+  if (!titulo) {
+    mostrarAlerta('danger', '⚠️ Por favor ingresa el título del libro');
+    return;
+  }
+  
+  if (!nombre) {
+    mostrarAlerta('danger', '⚠️ Por favor ingresa tu nombre');
+    return;
+  }
+  
+  const tituloIssue = `📚 Oferta: ${titulo}`;
+  const cuerpoIssue = `**📖 Título del libro:** ${titulo}
+${autor ? `**✍️ Autor/a:** ${autor}\n` : ''}**👤 Ofrecido por:** ${nombre}
+${comentario ? `\n**💬 Comentario:** ${comentario}` : ''}
 
 ---
 *Oferta de libro generada desde la Biblioteca de Oficina Granada*`;
   
-  const url = `https://github.com/DanielFontalva/DanielFontalva.github.io/issues/new?title=${encodeURIComponent(titulo)}&body=${encodeURIComponent(cuerpo)}&labels=ofrecer-libro`;
+  const url = `https://github.com/DanielFontalva/DanielFontalva.github.io/issues/new?title=${encodeURIComponent(tituloIssue)}&body=${encodeURIComponent(cuerpoIssue)}&labels=ofrecer-libro`;
   
   window.open(url, '_blank');
-  mostrarAlerta('success', '✅ Se abrirá GitHub para ofrecer tu libro');
+  
+  cerrarModalOfrecer();
+  mostrarAlerta('success', '✅ Se abrirá GitHub para confirmar tu oferta');
+  
+  // Limpiar formulario
+  document.getElementById('titulo-libro').value = '';
+  document.getElementById('autor-libro').value = '';
+  document.getElementById('nombre-ofrecedor').value = '';
+  document.getElementById('comentario-oferta').value = '';
 }
 
 function confirmarSolicitud() {

@@ -37,6 +37,15 @@ body:
       required: true
   
   - type: textarea
+    id: imagen
+    attributes:
+      label: 📷 Imagen del libro (opcional)
+      description: Incluye una imagen del libro para facilitar su identificación"
+      placeholder: "Arrastra una imagen aquí o pégala con Ctrl+V"
+    validations:
+      required: false
+  
+  - type: textarea
     id: comentarios
     attributes:
       label: 💬 Comentarios adicionales
