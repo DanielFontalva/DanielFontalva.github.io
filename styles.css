@@ -29,7 +29,7 @@ body {
   background: white;
   padding: 2rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-bottom: 4px solid #FF462D;
+  border-bottom: 4px solid #ff462d;
 }
 
 .header-content {
@@ -79,7 +79,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
   color: white;
-  background: #28a745;
+  background: #187E3F;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -88,9 +88,9 @@ body {
 }
 
 .btn-ofrecer-libro:hover {
-  background: #218838;
+  background: #14632F;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+  box-shadow: 0 4px 12px rgba(24, 126, 63, 0.3);
 }
 
 .libros-grid {
@@ -106,7 +106,7 @@ body {
   padding: 1.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
-  border-top: 4px solid #FF462D;
+  border-top: 4px solid #ff462d;
   border: 1px solid #e0e0e0;
   display: flex;
   flex-direction: column;
@@ -182,7 +182,7 @@ body {
 
 .badge.solicitado {
   background: #fff4e6;
-  color: #ff9800;
+  color: #ff462d;
 }
 
 .btn-solicitar {
@@ -192,7 +192,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
   color: white;
-  background: #0066CC;
+  background: #29707A;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -200,9 +200,9 @@ body {
 }
 
 .btn-solicitar:hover {
-  background: #0052a3;
+  background: #21545A;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+  box-shadow: 0 4px 12px rgba(41, 112, 122, 0.3);
 }
 
 .libro-solicitado-info {
@@ -210,12 +210,12 @@ body {
   padding: 0.75rem;
   background: #fff4e6;
   border-radius: 8px;
-  border-left: 4px solid #ff9800;
+  border-left: 4px solid #ff462d;
 }
 
 .libro-solicitado-info p {
   margin: 0;
-  color: #ff9800;
+  color: #ff462d;
   font-weight: 500;
   font-size: 0.9rem;
 }
@@ -288,7 +288,7 @@ body {
 
 .modal-close:hover {
   background: #f5f5f5;
-  color: #FF462D;
+  color: #ff462d;
   transform: rotate(90deg);
 }
 
@@ -337,7 +337,7 @@ body {
 
 .form-group input:focus {
   outline: none;
-  border-color: #0066CC;
+  border-color: #29707A;
 }
 
 .instrucciones-solicitud {
@@ -345,7 +345,7 @@ body {
   padding: 1rem;
   border-radius: 8px;
   margin-bottom: 1.5rem;
-  border-left: 4px solid #0066CC;
+  border-left: 4px solid #29707A;
 }
 
 .instrucciones-solicitud p {
@@ -355,7 +355,7 @@ body {
 }
 
 .teams-contact {
-  color: #0066CC !important;
+  color: #29707A !important;
   font-weight: 700 !important;
   font-size: 1.1rem !important;
 }
@@ -366,7 +366,7 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   color: white;
-  background: #0066CC;
+  background: #29707A;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -374,7 +374,7 @@ body {
 }
 
 .btn-confirmar-solicitud:hover {
-  background: #0052a3;
+  background: #21545A;
   transform: scale(1.02);
 }
 
