@@ -1,196 +1,331 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📚 Biblioteca de Oficina Granada</title>
-  <link rel="stylesheet" href="styles.css?v=1.0">
-</head>
-<body>
-  <div class="public-view">
-    <header class="public-header">
-      <div class="header-content">
-        <div style="display: flex; align-items: center;">
-          <div>
-            <h1>📚 Biblioteca de Oficina Granada</h1>
-            <p>Comparte tus libros con la comunidad</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca de Oficina Granada</title>
+    <link rel="stylesheet" href="styles.css?v=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Special+Gothic+Expanded+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="public-view">
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h2>Biblioteca de oficina</h2>
+            <p>
+              Explora la colección de libros compartidos por la comunidad.
+              Encuentra historias increíbles, comparte tus favoritos y conecta
+              con otros amantes de la lectura.
+            </p>
+            <button class="btn-hero" onclick="scrollToBooks()">
+              Ver Libros Disponibles
+            </button>
+          </div>
+        </div>
+        <div class="image-attribution">
+          <a
+            href="https://www.freepik.com/free-photo/book-library-with-open-textbook_3737798.htm#fromView=search&page=1&position=5&uuid=74766418-88f8-4b44-abef-d47ec3bf1485&query=library"
+            target="_blank"
+            >Image by freepik</a
+          >
+        </div>
+      </section>
+
+      <div class="public-container">
+        <div class="libros-section">
+          <div class="header-con-boton">
+            <h2>Libros Disponibles (<span id="libro-count">0</span>)</h2>
+            <button class="btn-ofrecer-libro" onclick="ofrecerLibro()">
+              📚 Ofrecer un Libro
+            </button>
+          </div>
+          <div class="libros-grid" id="libros-container">
+            <div class="libro-card">
+              <img
+                src="images/cinco-cerditos.jpg"
+                alt="5 cerditos"
+                class="libro-imagen"
+              />
+              <h3>5 cerditos</h3>
+              <p class="autor">Autor/a: Agatha Christie</p>
+              <div class="libro-info">
+                <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
+              </div>
+              <button
+                class="btn-solicitar"
+                onclick="solicitarLibro('5 cerditos', 'Daniel Fontalva Ostio')"
+              >
+                Solicitar Libro
+              </button>
+            </div>
+
+            <div class="libro-card">
+              <img
+                src="images/asesinato-en-el-campo-de-golf.jpg"
+                alt="Asesinato en el campo de golf"
+                class="libro-imagen"
+              />
+              <h3>Asesinato en el campo de golf</h3>
+              <p class="autor">Autor/a: Agatha Christie</p>
+              <div class="libro-info">
+                <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
+              </div>
+              <button
+                class="btn-solicitar"
+                onclick="
+                  solicitarLibro(
+                    'Asesinato en el campo de golf',
+                    'Daniel Fontalva Ostio',
+                  )
+                "
+              >
+                Solicitar Libro
+              </button>
+            </div>
+
+            <div class="libro-card">
+              <img
+                src="images/el-misterioso-caso-de-styles.jpg"
+                alt="El misterioso caso de styles"
+                class="libro-imagen"
+              />
+              <h3>El misterioso caso de Styles</h3>
+              <p class="autor">Autor/a: Agatha Christie</p>
+              <div class="libro-info">
+                <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
+              </div>
+              <button
+                class="btn-solicitar"
+                onclick="
+                  solicitarLibro(
+                    'El misterioso caso de styles',
+                    'Daniel Fontalva Ostio',
+                  )
+                "
+              >
+                Solicitar Libro
+              </button>
+            </div>
+
+            <div class="libro-card">
+              <img
+                src="images/navidades-tragicas.jpg"
+                alt="Navidades trágicas"
+                class="libro-imagen"
+              />
+              <h3>Navidades trágicas</h3>
+              <p class="autor">Autor/a: Agatha Christie</p>
+              <div class="libro-info">
+                <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
+              </div>
+              <button
+                class="btn-solicitar"
+                onclick="
+                  solicitarLibro('Navidades trágicas', 'Daniel Fontalva Ostio')
+                "
+              >
+                Solicitar Libro
+              </button>
+            </div>
+
+            <div class="libro-card">
+              <img
+                src="images/el-baile-de-los-malditos.jpg"
+                alt="El baile de los malditos"
+                class="libro-imagen"
+              />
+              <h3>El baile de los malditos</h3>
+              <p class="autor">Autor/a: Irwin Shaw</p>
+              <div class="libro-info">
+                <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
+              </div>
+              <button
+                class="btn-solicitar"
+                onclick="
+                  solicitarLibro(
+                    'El baile de los malditos',
+                    'Daniel Fontalva Ostio',
+                  )
+                "
+              >
+                Solicitar Libro
+              </button>
+            </div>
+
+            <div class="libro-card">
+              <img
+                src="images/el-viejo-y-el-mar.jpg"
+                alt="El viejo y el mar"
+                class="libro-imagen"
+              />
+              <h3>El viejo y el mar</h3>
+              <p class="autor">Autor/a: Ernest Hemingway</p>
+              <div class="libro-info">
+                <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
+              </div>
+              <button
+                class="btn-solicitar"
+                onclick="
+                  solicitarLibro('El viejo y el mar', 'Daniel Fontalva Ostio')
+                "
+              >
+                Solicitar Libro
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </header>
 
-    <div class="public-container">
-      <div class="libros-section">
-        <div class="header-con-boton">
-          <h2>Libros Disponibles (<span id="libro-count">0</span>)</h2>
-          <button class="btn-ofrecer-libro" onclick="ofrecerLibro()">
-            📚 Ofrecer un Libro
-          </button>
+      <div class="modal-overlay" id="modal-solicitud" style="display: none">
+        <div class="modal-content" onclick="event.stopPropagation()">
+          <button class="modal-close" onclick="cerrarModal()">✕</button>
+          <div class="formulario-solicitud">
+            <h2>Solicitar Libro</h2>
+            <div class="libro-solicitud-info">
+              <h3 id="modal-libro-titulo"></h3>
+            </div>
+            <div class="instrucciones-solicitud">
+              <p>
+                📝 Completa el formulario y se creará una solicitud en GitHub
+                Issues. También puedes escribirme por Teams a Daniel Fontalva
+                Ostio
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="nombre-solicitante">Tu nombre:</label>
+              <input
+                type="text"
+                id="nombre-solicitante"
+                placeholder="Ej: María García"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="comentario-solicitud">Comentario (opcional):</label>
+              <input
+                type="text"
+                id="comentario-solicitud"
+                placeholder="Ej: Puedo recogerlo el lunes"
+              />
+            </div>
+
+            <button
+              class="btn-confirmar-solicitud"
+              onclick="confirmarSolicitud()"
+            >
+              Crear Solicitud
+            </button>
+          </div>
         </div>
-        <div class="libros-grid" id="libros-container">
-          
-          <div class="libro-card">
-            <div class="libro-imagen-placeholder">📚</div>
-            <h3>5 cerditos</h3>
-            <p class="autor">Autor/a: Agatha Christie</p>
-            <div class="libro-info">
-              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
+      </div>
+
+      <!-- Modal para Ofrecer Libro -->
+      <div class="modal-overlay" id="modal-ofrecer" style="display: none">
+        <div class="modal-content" onclick="event.stopPropagation()">
+          <button class="modal-close" onclick="cerrarModalOfrecer()">✕</button>
+          <div class="formulario-solicitud">
+            <h2>Ofrecer Libro</h2>
+            <div class="libro-solicitud-info">
+              <h3>📚 Añade un libro a la biblioteca</h3>
             </div>
-            <button class="btn-solicitar" onclick="solicitarLibro('5 cerditos', 'Daniel Fontalva Ostio')">
-              Solicitar Libro
+            <div class="instrucciones-solicitud">
+              <p>
+                📝 Completa el formulario y se creará una oferta en GitHub
+                Issues. También puedes escribirme por Teams a
+                <span class="teams-contact">Daniel Fontalva Ostio</span>
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="titulo-libro">Título del libro:</label>
+              <input
+                type="text"
+                id="titulo-libro"
+                placeholder="Ej: El viejo y el mar"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="autor-libro">Autor/a (opcional):</label>
+              <input
+                type="text"
+                id="autor-libro"
+                placeholder="Ej: Ernest Hemingway"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="nombre-ofrecedor">Tu nombre:</label>
+              <input
+                type="text"
+                id="nombre-ofrecedor"
+                placeholder="Ej: María García"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="comentario-oferta">Comentario (opcional):</label>
+              <input
+                type="text"
+                id="comentario-oferta"
+                placeholder="Ej: El libro está en muy buen estado"
+              />
+            </div>
+
+            <button class="btn-confirmar-solicitud" onclick="confirmarOferta()">
+              Ofrecer Libro
             </button>
           </div>
+        </div>
+      </div>
 
-          <div class="libro-card">
-            <img src="images/20251218_104422_WIN_20251218_10_43_37_Pro.jpg" alt="Asesinato en el campo de golf" class="libro-imagen">
-            <h3>Asesinato en el campo de golf</h3>
-            <p class="autor">Autor/a: Agatha Christie</p>
-            <div class="libro-info">
-              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
-            </div>
-            <button class="btn-solicitar" onclick="solicitarLibro('Asesinato en el campo de golf', 'Daniel Fontalva Ostio')">
-              Solicitar Libro
-            </button>
-          </div>
-
-          <div class="libro-card">
-            <img src="images/20251218_104443_WIN_20251218_10_44_08_Pro.jpg" alt="El misterioso caso de styles" class="libro-imagen">
-            <h3>El misterioso caso de styles</h3>
-            <p class="autor">Autor/a: Agatha Christie</p>
-            <div class="libro-info">
-              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
-            </div>
-            <button class="btn-solicitar" onclick="solicitarLibro('El misterioso caso de styles', 'Daniel Fontalva Ostio')">
-              Solicitar Libro
-            </button>
-          </div>
-
-          <div class="libro-card">
-            <div class="libro-imagen-placeholder">📚</div>
-            <h3>Navidades trágicas</h3>
-            <p class="autor">Autor/a: Agatha Christie</p>
-            <div class="libro-info">
-              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
-            </div>
-            <button class="btn-solicitar" onclick="solicitarLibro('Navidades trágicas', 'Daniel Fontalva Ostio')">
-              Solicitar Libro
-            </button>
-          </div>
-
-          <div class="libro-card">
-            <img src="images/20251218_104431_WIN_20251218_10_42_07_Pro.jpg" alt="El cardenal" class="libro-imagen">
-            <h3>El cardenal</h3>
-            <p class="autor">Autor/a: Henry Morton Robinson</p>
-            <div class="libro-info">
-              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
-            </div>
-            <button class="btn-solicitar" onclick="solicitarLibro('El cardenal', 'Daniel Fontalva Ostio')">
-              Solicitar Libro
-            </button>
-          </div>
-
-          <div class="libro-card">
-            <img src="images/20251218_104106_WIN_20251218_10_32_34_Pro.png" alt="El baile de los malditos" class="libro-imagen">
-            <h3>El baile de los malditos</h3>
-            <p class="autor">Autor/a: Irwin Shaw</p>
-            <div class="libro-info">
-              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
-            </div>
-            <button class="btn-solicitar" onclick="solicitarLibro('El baile de los malditos', 'Daniel Fontalva Ostio')">
-              Solicitar Libro
-            </button>
-          </div>
-
-          <div class="libro-card">
-            <img src="images/20251218_104556_WIN_20251218_10_45_45_Pro.jpg" alt="El viejo y el mar" class="libro-imagen">
-            <h3>El viejo y el mar</h3>
-            <p class="autor">Autor/a: Ernest Hemingway</p>
-            <div class="libro-info">
-              <p class="propietario">Donado por: Daniel Fontalva Ostio</p>
-            </div>
-            <button class="btn-solicitar" onclick="solicitarLibro('El viejo y el mar', 'Daniel Fontalva Ostio')">
-              Solicitar Libro
-            </button>
-          </div>
-
+      <div class="alert" id="alert-box" style="display: none">
+        <div class="alert-content">
+          <span class="alert-icon" id="alert-icon">✔️</span>
+          <span class="alert-message" id="alert-message"></span>
+          <button class="alert-close" onclick="cerrarAlerta()">×</button>
         </div>
       </div>
     </div>
 
-    <div class="modal-overlay" id="modal-solicitud" style="display: none;">
-      <div class="modal-content" onclick="event.stopPropagation()">
-        <button class="modal-close" onclick="cerrarModal()">✕</button>
-        <div class="formulario-solicitud">
-          <h2>Solicitar Libro</h2>
-          <div class="libro-solicitud-info">
-            <h3 id="modal-libro-titulo"></h3>
-          </div>
-          <div class="instrucciones-solicitud">
-            <p>📝 Completa el formulario y se creará una solicitud en GitHub Issues. También puedes escribirme por Teams a Daniel Fontalva Ostio</p>
-          </div>
-          
-          <div class="form-group">
-            <label for="nombre-solicitante">Tu nombre:</label>
-            <input type="text" id="nombre-solicitante" placeholder="Ej: María García" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="comentario-solicitud">Comentario (opcional):</label>
-            <input type="text" id="comentario-solicitud" placeholder="Ej: Puedo recogerlo el lunes">
-          </div>
-          
-          <button class="btn-confirmar-solicitud" onclick="confirmarSolicitud()">Crear Solicitud</button>
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>Biblioteca de Oficina Granada</h3>
+          <p>
+            Esta página muestra únicamente libros disponibles para el
+            intercambio entre compañeros de la oficina. Cualquier mención a
+            empresas o entidades es sin ánimo de lucro y con fines puramente
+            informativos.
+          </p>
+          <p class="footer-restriction">
+            Las solicitudes de libros solo se concederán para trabajadores
+            integrantes de la empresa.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; 2026 • Sin fines comerciales</p>
         </div>
       </div>
-    </div>
+    </footer>
 
-    <!-- Modal para Ofrecer Libro -->
-    <div class="modal-overlay" id="modal-ofrecer" style="display: none;">
-      <div class="modal-content" onclick="event.stopPropagation()">
-        <button class="modal-close" onclick="cerrarModalOfrecer()">✕</button>
-        <div class="formulario-solicitud">
-          <h2>Ofrecer Libro</h2>
-          <div class="libro-solicitud-info">
-            <h3>📚 Añade un libro a la biblioteca</h3>
-          </div>
-          <div class="instrucciones-solicitud">
-            <p>📝 Completa el formulario y se creará una oferta en GitHub Issues. También puedes escribirme por Teams a <span class="teams-contact">Daniel Fontalva Ostio</span></p>
-          </div>
-          
-          <div class="form-group">
-            <label for="titulo-libro">Título del libro:</label>
-            <input type="text" id="titulo-libro" placeholder="Ej: El viejo y el mar" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="autor-libro">Autor/a (opcional):</label>
-            <input type="text" id="autor-libro" placeholder="Ej: Ernest Hemingway">
-          </div>
-          
-          <div class="form-group">
-            <label for="nombre-ofrecedor">Tu nombre:</label>
-            <input type="text" id="nombre-ofrecedor" placeholder="Ej: María García" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="comentario-oferta">Comentario (opcional):</label>
-            <input type="text" id="comentario-oferta" placeholder="Ej: El libro está en muy buen estado">
-          </div>
-          
-          <button class="btn-confirmar-solicitud" onclick="confirmarOferta()">Ofrecer Libro</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="alert" id="alert-box" style="display: none;">
-      <div class="alert-content">
-        <span class="alert-icon" id="alert-icon">✔️</span>
-        <span class="alert-message" id="alert-message"></span>
-        <button class="alert-close" onclick="cerrarAlerta()">×</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

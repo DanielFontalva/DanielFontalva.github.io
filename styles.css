@@ -1,7 +1,5 @@
 :root {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Montserrat;
   line-height: 1.5;
   font-weight: 400;
 }
@@ -17,19 +15,15 @@ body {
   min-width: 320px;
   min-height: 100vh;
   color: #213547;
-  background-color: #ffffff;
 }
 
 .public-view {
   min-height: 100vh;
-  background: #ffffff;
 }
 
 .public-header {
-  background: white;
-  padding: 2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-bottom: 4px solid #ff462d;
+  background: transparent;
+  padding: 1rem;
 }
 
 .header-content {
@@ -43,14 +37,111 @@ body {
 .public-header h1 {
   margin: 0;
   font-size: 2.5rem;
-  color: #333;
+  color: #ffffff;
   font-weight: 700;
 }
 
 .public-header p {
   margin: 0.5rem 0 0;
-  color: #555;
+  color: #ffffff;
   font-size: 1.1rem;
+}
+
+.hero-section {
+  background-image: url('/images/hero-section-background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.hero-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5rem;
+  max-width: 70%;
+  height: 100vh;
+}
+
+.hero-text {
+  flex: 1;
+  padding-right: 3rem;
+}
+
+.hero-text h2 {
+  font-size: 4rem;
+    font-family: "Special Gothic Expanded One", sans-serif;
+
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.438);
+}
+
+.hero-text p {
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  max-width: 600px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.438);
+
+}
+
+.btn-hero {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #ff462d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 70, 45, 0.2);
+}
+
+.btn-hero:hover {
+  background: #e03e26;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 70, 45, 0.3);
+}
+
+
+.image-attribution {
+  position: absolute;
+  right: 1rem;
+  bottom: 2rem;
+  background: rgba(0,0,0,0.35);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  width: fit-content;
+  font-size: 0.7rem;
+}
+
+.image-attribution a {
+  color: white;
+  text-decoration: none;
+}
+
+.image-attribution a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design for hero section */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .hero-text h2 {
+    font-size: 2.2rem;
+  }
+  
+
 }
 
 .public-container {
@@ -110,6 +201,7 @@ body {
   border: 1px solid #e0e0e0;
   display: flex;
   flex-direction: column;
+  min-height: 600px;
 }
 
 .libro-card:hover {
@@ -119,16 +211,17 @@ body {
 
 .libro-imagen {
   width: 100%;
-  height: 200px;
+  height: 320px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1rem;
   background: #f5f5f5;
+  flex-shrink: 0;
 }
 
 .libro-imagen-placeholder {
   width: 100%;
-  height: 200px;
+  height: 320px;
   background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
   border-radius: 8px;
   margin-bottom: 1rem;
@@ -137,6 +230,7 @@ body {
   justify-content: center;
   font-size: 3rem;
   color: #999;
+  flex-shrink: 0;
 }
 
 .libro-card h3 {
@@ -144,16 +238,25 @@ body {
   color: #000;
   font-size: 1.4rem;
   font-weight: 700;
+  line-height: 1.3;
+  min-height: 3.6rem;
+  display: flex;
+  align-items: flex-start;
 }
 
 .libro-card .autor {
   color: #666;
   font-size: 0.95rem;
   margin: 0.5rem 0;
+  min-height: 1.5rem;
 }
 
 .libro-info {
   margin: 1rem 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .libro-card .propietario {
@@ -161,6 +264,7 @@ body {
   font-size: 0.85rem;
   margin: 0.5rem 0;
   font-style: italic;
+  min-height: 1.2rem;
 }
 
 .libro-card .notas {
@@ -466,5 +570,78 @@ body {
   .alert {
     min-width: 90%;
     max-width: 90%;
+  }
+}
+
+/* Footer Styles */
+.main-footer {
+  background: linear-gradient(135deg, #333 0%, #2c2c2c 100%);
+  color: white;
+  margin-top: 4rem;
+  padding: 3rem 0 2rem;
+  border-top: 4px solid #ff462d;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-info {
+  margin-bottom: 2rem;
+}
+
+.footer-info h3 {
+  color: #ff462d;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.footer-info p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.footer-restriction {
+  background: rgba(255, 70, 45, 0.1);
+  border-left: 4px solid #ff462d;
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin-top: 1.5rem;
+}
+
+.footer-restriction strong {
+  color: #ff462d;
+}
+
+.footer-meta {
+  padding-top: 1.5rem;
+  border-top: 1px solid #444;
+  text-align: center;
+}
+
+.footer-meta p {
+  color: #999;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  .main-footer {
+    padding: 2rem 0 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .footer-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .footer-info p {
+    font-size: 0.9rem;
   }
 }

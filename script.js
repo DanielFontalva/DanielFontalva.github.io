@@ -1,6 +1,17 @@
 let libroActual = '';
 let propietarioActual = '';
 
+function scrollToBooks() {
+  const librosSection = document.querySelector('.public-container');
+  if (librosSection) {
+    const offsetTop = librosSection.offsetTop - 100;
+    window.scrollTo({
+      top: offsetTop,
+      behavior: 'smooth'
+    });
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   actualizarContador();
 });
