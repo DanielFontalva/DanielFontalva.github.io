@@ -21,9 +21,8 @@ function actualizarContador() {
   document.getElementById('libro-count').textContent = librosCards.length;
 }
 
-function solicitarLibro(tituloLibro, propietario) {
+function solicitarLibro(tituloLibro) {
   libroActual = tituloLibro;
-  propietarioActual = propietario;
   
   document.getElementById('modal-libro-titulo').textContent = tituloLibro;
   
