@@ -117,7 +117,7 @@ body {
   border-radius: 6px;
   backdrop-filter: blur(4px);
   width: fit-content;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }
 
 .image-attribution a {
@@ -138,9 +138,33 @@ body {
   }
   
   .hero-text h2 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
   
+  .hero-text p {
+    font-size: 1rem;
+  }
+  
+  .image-attribution {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.4rem;
+  }
+  
+  .hero-section {
+    margin-bottom: 3rem;
+  }
+  
+  .rules {
+    margin: 4rem auto 3rem auto;
+    padding: 2rem 1rem;
+    height: auto;
+    min-height: 400px;
+  }
+  
+  .public-container {
+    margin: 10rem auto 2rem auto !important;
+    padding: 2rem 1rem;
+  }
 
 }
 
@@ -610,15 +634,18 @@ body {
     font-size: 1.8rem;
   }
 
-
-
   .libros-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .alert {
     min-width: 90%;
     max-width: 90%;
+  }
+  
+  .hero-section {
+    margin-bottom: 10rem;
   }
 }
 
