@@ -15,10 +15,13 @@ body {
   min-width: 320px;
   min-height: 100vh;
   color: #213547;
+  
 }
 
 .public-view {
   min-height: 100vh;
+      overflow: hidden;
+
 }
 
 .public-header {
@@ -567,8 +570,9 @@ body {
   justify-content: left;
   max-width: 1800px;
  margin: 0rem auto 4rem auto;
-  padding: 3rem;
+  padding: 3rem 0 3rem 3rem;
   height: 500px;
+
 }
 
 .rules-text {
