@@ -145,9 +145,9 @@ body {
 }
 
 .public-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 1800px;
+  margin: 4rem auto;
+  padding: 3rem;
 }
 
 .header-con-boton {
@@ -534,6 +534,55 @@ body {
   flex: 1;
   font-size: 1rem;
   font-weight: 500;
+}
+.rules {
+  display: flex;
+  position: relative;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: left;
+  max-width: 1800px;
+ margin: 0rem auto 4rem auto;
+  padding: 3rem;
+  height: 500px;
+}
+
+.rules-text {
+  max-width: 600px;
+  margin-top: 2rem;
+}
+
+.rules-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.rules-text p {
+  margin-bottom: 2rem;
+}
+
+.rules img {
+  position: absolute;
+  right: -400px;
+  height: 100%;
+}
+
+.rules-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.rules-list li {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .rules img {
+    display: none !important;
+  }
 }
 
 .alert-close {
