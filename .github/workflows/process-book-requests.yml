@@ -61,13 +61,11 @@ jobs:
               return;
             }
             
-            const propietarioMatch = body.match(/Propietario.*:\s*(.+)/i);
             const solicitanteMatch = body.match(/Solicitado por.*:\s*(.+)/i);
             
-            const propietario = propietarioMatch ? propietarioMatch[1].trim() : 'Propietario';
             const solicitante = solicitanteMatch ? solicitanteMatch[1].trim() : 'Solicitante';
             
-            const comment = `Hola @${issue.user.login}!\n\nTu solicitud ha sido registrada exitosamente.\n\nProximos pasos:\n1. ${propietario} sera notificado de tu solicitud\n2. Ponte en contacto con el propietario por Teams o correo\n3. Coordina la entrega del libro\n\nUna vez que hayas recogido el libro, puedes cerrar este issue.\n\n---\n*Mensaje automatico generado por GitHub Actions*`;
+            const comment = `Hola @${issue.user.login}!\n\nTu solicitud ha sido registrada exitosamente.\n\nSi el libro no ha sido solicitado previamente por otro usuario, el administrador te avisará para que recojas el libro\n\n---\n*Mensaje automatico generado por GitHub Actions*`;
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
